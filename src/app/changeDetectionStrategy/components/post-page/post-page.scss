@@ -1,0 +1,23 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2rem;
+
+  button {
+    @include custom-button(
+        22px,
+        0.5rem 1rem,
+        $confirm-btn-font-color,
+        $confirm-btn-color,
+        $confirm-btn-color-hover,
+        none
+    )
+  }
+}

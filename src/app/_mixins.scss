@@ -1,0 +1,17 @@
+@mixin custom-button($font-size, $padding, $color, $background-color, $hover-color, $border) {
+    font-size: $font-size;
+    font-weight: bold;
+    padding: $padding;
+    border-radius: 5px;
+    border: $border;
+    background: $background-color;
+    color: $color;
+
+    &:hover {
+      background: $hover-color;
+    }
+
+    &:active {
+      transform: scale(0.975);
+    }
+}

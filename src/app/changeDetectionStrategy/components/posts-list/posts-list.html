@@ -1,0 +1,16 @@
+@if (posts$ | async; as posts) {
+  <div class="posts-list">
+    @for (post of posts; track post.id; let i = $index) {
+      <div>
+        <span (dblclick)="changeComment()">{{ comment }} </span>
+        <span>{{ post.id }}</span>
+        <app-post
+          [post]="post"
+          [author]="author"
+          (click)="onPostClick($index)"
+        >
+        </app-post>
+      </div>
+    }
+  </div>
+}

@@ -1,0 +1,54 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+form {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 1rem;
+
+  .fill-container {
+    display: flex;
+    flex-direction: column;
+
+    input, textarea {
+      padding: 5px;
+    }
+
+    textarea {
+      min-height: 75px;
+      max-height: 200px;
+      resize: vertical;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px;
+
+    #submit {
+      @include custom-button(
+          22px,
+          0.5rem 1rem,
+          $confirm-btn-font-color,
+          $confirm-btn-color,
+          $confirm-btn-color-hover,
+          none
+      )
+    }
+
+    #cancel {
+      @include custom-button(
+          22px,
+          0.5rem 1rem,
+          $confirm-btn-font-color,
+          $cancel-btn-color,
+          $cancel-btn-color-hover,
+          none
+      )
+    }
+  }
+}

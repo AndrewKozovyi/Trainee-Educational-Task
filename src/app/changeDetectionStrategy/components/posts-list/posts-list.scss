@@ -1,0 +1,22 @@
+@use "../../../variables" as *;
+@use "../../../mixins" as *;
+
+.posts-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  box-sizing: border-box;
+  padding: 0 2rem;
+}
+
+app-post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+  word-break: break-word;
+  border: 1px solid;
+}
