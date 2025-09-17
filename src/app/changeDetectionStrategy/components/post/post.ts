@@ -10,7 +10,7 @@ import {PostModel} from '../../model/postModel';
 })
 export class Post implements OnChanges {
   @Input({ required: true }) post!: PostModel;
-  @Input() author?: string;
+  @Input() author$?: string;
 
   ngOnChanges(changes: SimpleChanges) {
     console.log('changes were made to ' + this.post.title);

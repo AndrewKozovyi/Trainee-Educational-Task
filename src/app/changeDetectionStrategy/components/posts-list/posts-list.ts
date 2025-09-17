@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {Post} from '../post/post';
 import {Posts} from '../../service/posts';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 import {PostModel} from '../../model/postModel';
 
@@ -20,12 +20,12 @@ export class PostsList implements OnInit {
   postService = inject(Posts);
   cdr = inject(ChangeDetectorRef);
   comment = 'post';
-  author = 'unknown';
+  author$ = new BehaviorSubject('unknown');
 
   constructor() {
     setTimeout(() => {
-      this.author = this.author === 'Andrew' ? 'unknown' : 'Andrew';
-      this.cdr.markForCheck();
+      this.author$.next('Andrew');
+      // this.cdr.markForCheck();
     },5000);
   }
 

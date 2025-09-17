@@ -1,0 +1,23 @@
+<ng-template #templateHeader>
+  <header class="custom-header">
+    <h1>ng-content | ng-template | ng-container</h1>
+    <p-togglebutton [(ngModel)]="useCustomCard" onLabel="Custom" offLabel="Default" class="w-24"></p-togglebutton>
+  </header>
+</ng-template>
+
+<app-header [headerTemplate]="templateHeader"></app-header>
+
+<main>
+  <app-cards-block
+    [user]="userSame"
+    [users]="usersSame"
+    [different]="false"
+    [useCustomCard]="useCustomCard"
+  ></app-cards-block>
+
+  <app-cards-block
+    [user]="userDifferent"
+    [users]="usersDifferent"
+    [different]="true"
+  ></app-cards-block>
+</main>

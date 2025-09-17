@@ -1,0 +1,42 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.custom-select {
+  width: 100%;
+
+  button {
+    width: 100%;
+
+    @include custom-button(
+        22px,
+        0.5rem 1rem,
+        white,
+        #c319c3,
+        purple,
+        none
+    )
+  }
+
+  ul {
+    display: block;
+    background: #c8c7c7;
+    width: 100%;
+    text-align: center;
+
+    li {
+      margin: auto;
+      list-style: none;
+      cursor: pointer;
+      padding: 1rem 1rem;
+      font-size: 20px;
+
+      &:hover {
+        background: #757575;
+      }
+    }
+  }
+}
+
+.active {
+  background: #9f9f9f;
+}

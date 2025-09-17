@@ -1,0 +1,25 @@
+<ng-template #customCard let-user>
+  <app-fullname>{{ user.name.slice(0,1) }}. {{ user.surname }}</app-fullname>
+  <h5>{{ user.phone }}</h5>
+</ng-template>
+
+<div class="different-cards">
+  <h1>CARDS ARE DIFFERENT</h1>
+  @if (user) {
+    <app-card [customCard]="different ? userCustomCard : customCardIsNeeded" [data]="user">
+      <app-fullname>{{ user.name }} {{ user.surname }}</app-fullname>
+      <strong>{{ user.age }}</strong>
+      <h5>{{ user.email }}</h5>
+      <h5>{{ user.phone }}</h5>
+      <ng-container ngProjectAs="pet">{{ user.pet }}</ng-container>
+    </app-card>
+  }
+  <app-custom-select
+    [options]="users"
+    [(selectedOption)]="user"
+  >
+    <ng-template let-user>
+      <app-fullname>{{ user.name }} {{ user.surname }}</app-fullname>
+    </ng-template>
+  </app-custom-select>
+</div>

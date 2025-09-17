@@ -1,0 +1,17 @@
+<ng-template #defaultCard>
+  <div class="info">
+    <ng-content select="app-fullname"></ng-content>
+    <ng-content select="strong"></ng-content>
+  </div>
+
+  <ng-content></ng-content>
+
+  <h4>Pet: <ng-content select="pet"></ng-content></h4>
+</ng-template>
+
+<div class="card">
+  <ng-container
+    [ngTemplateOutlet]="customCard ? customCard : defaultCard"
+    [ngTemplateOutletContext]="{$implicit: data}"
+  ></ng-container>
+</div>

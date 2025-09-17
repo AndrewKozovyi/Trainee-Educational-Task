@@ -1,0 +1,11 @@
+<ng-template #defaultHeader>
+  <header>
+    @if (title) {
+      <h1>{{ title }}</h1>
+    }
+  </header>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeader">
+</ng-container>
+

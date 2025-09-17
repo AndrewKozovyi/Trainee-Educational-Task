@@ -6,7 +6,7 @@
         <span>{{ post.id }}</span>
         <app-post
           [post]="post"
-          [author]="author"
+          [author$]="(author$ | async)!"
           (click)="onPostClick($index)"
         >
         </app-post>

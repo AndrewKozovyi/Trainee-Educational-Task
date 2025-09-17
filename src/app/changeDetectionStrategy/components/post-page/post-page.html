@@ -1,7 +1,12 @@
-<header>
-  <h1>POSTS</h1>
-  <button (click)="onAddPost()">Add Post</button>
-</header>
+<ng-template #postHeader>
+  <header class="custom-header">
+    <h1>POSTS</h1>
+    <button (click)="onAddPost()">Add Post</button>
+  </header>
+</ng-template>
+
+<app-header [headerTemplate]="postHeader"></app-header>
+
 <main>
   <app-posts-list></app-posts-list>
 </main>

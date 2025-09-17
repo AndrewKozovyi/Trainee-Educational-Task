@@ -1,0 +1,10 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 6fr);
+  justify-items: center;
+}
+
+p-togglebutton {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
