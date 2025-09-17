@@ -12,4 +12,8 @@ export const navigatingBar: OnBoardingTask[] = [
     name: 'ng-content, ng-template and ng-container',
     link: '/templates',
   },
+  {
+    name: 'Attribute and Structure Directives',
+    link: '/directives',
+  },
 ]

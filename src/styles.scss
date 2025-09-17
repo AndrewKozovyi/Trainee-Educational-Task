@@ -47,3 +47,15 @@ main {
     )
   }
 }
+
+
+.grey-btn {
+  @include custom-button(
+      22px,
+      0.5rem 1rem,
+      $confirm-btn-font-color,
+      grey,
+      #a6a6a6,
+      none
+  )
+}

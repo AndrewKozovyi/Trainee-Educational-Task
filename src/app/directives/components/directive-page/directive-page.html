@@ -1,0 +1,10 @@
+<app-header title="Attribute and Structure Directives">
+</app-header>
+
+<main>
+  <div class="directive-case">
+    <h1>Structure Directive</h1>
+    <button class="grey-btn" (click)="ngIfAnalogValue = !ngIfAnalogValue">Change appearance</button>
+    <h1 [ngIfAnalog]="ngIfAnalogValue">Do you see me?</h1>
+  </div>
+</main>

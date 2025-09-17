@@ -2,6 +2,6 @@
 </app-header>
 <main>
   @for (task of tasks; track task.name) {
-    <button [routerLink]="task.link">{{ task.name }}</button>
+    <button class="grey-btn" [routerLink]="task.link">{{ task.name }}</button>
   }
 </main>
