@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {PostPage} from './changeDetectionStrategy/components/post-page/post-page';
+import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   imports: [
-    PostPage
+    RouterOutlet,
+    RouterLink
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

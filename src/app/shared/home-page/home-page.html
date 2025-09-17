@@ -1,0 +1,8 @@
+<header>
+  <h1>Choose part of educational task</h1>
+</header>
+<main>
+  @for (task of tasks; track task.name) {
+    <button [routerLink]="task.link">{{ task.name }}</button>
+  }
+</main>

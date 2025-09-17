@@ -1,0 +1,31 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+header {
+  width: 100%;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  button {
+    @include custom-button(
+        22px,
+        0.5rem 1rem,
+        $confirm-btn-font-color,
+        grey,
+        #a6a6a6,
+        none
+    )
+  }
+}
