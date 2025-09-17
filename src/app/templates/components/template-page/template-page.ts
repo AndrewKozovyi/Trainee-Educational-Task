@@ -1,7 +1,6 @@
-import {Component, TemplateRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserData, userDummyData, userDummyDataDifferent} from '../../model/userData';
 import {Header} from '../../../shared/header/header';
-import {Fullname} from '../fullname/fullname';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import {FormsModule} from '@angular/forms';
 import {CardsBlock} from '../cards-block/cards-block';
