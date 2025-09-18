@@ -16,4 +16,8 @@ export const navigatingBar: OnBoardingTask[] = [
     name: 'Attribute and Structure Directives',
     link: '/directives',
   },
+  {
+    name: 'Control Value Accessor',
+    link: '/controlValueAccessor',
+  },
 ]
