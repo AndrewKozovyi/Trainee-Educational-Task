@@ -11,6 +11,11 @@ import {
 export class NgIfAnalog {
   private show = false;
 
+  constructor(
+    private tR: TemplateRef<any>,
+    private vC: ViewContainerRef
+  ) {}
+
   @Input() set ngIfAnalog(value: boolean) {
     if (value && !this.show) {
       this.vC.createEmbeddedView(this.tR);
@@ -20,9 +25,4 @@ export class NgIfAnalog {
       this.show = false;
     }
   }
-
-  constructor(
-    private tR: TemplateRef<any>,
-    private vC: ViewContainerRef
-  ) {}
 }

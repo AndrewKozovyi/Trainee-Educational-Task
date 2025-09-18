@@ -3,3 +3,8 @@ main {
   grid-template-columns: repeat(2, 6fr);
   justify-items: center;
 }
+
+input {
+  padding: 5px;
+  font-size: 1.5rem;
+}
