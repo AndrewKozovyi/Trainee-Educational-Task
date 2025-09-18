@@ -1,13 +1,28 @@
-import {Directive, ElementRef, inject, Input} from '@angular/core';
+import {
+  Directive,
+  Input,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 
 @Directive({
   selector: '[ngIfAnalog]'
 })
 export class NgIfAnalog {
-  private el = inject(ElementRef);
+  private show = false;
+
   @Input() set ngIfAnalog(value: boolean) {
-    this.el.nativeElement.style.display = value ? 'block' : 'none';
+    if (value && !this.show) {
+      this.vC.createEmbeddedView(this.tR);
+      this.show = true;
+    } else {
+      this.vC.clear();
+      this.show = false;
+    }
   }
 
-  constructor() { }
+  constructor(
+    private tR: TemplateRef<any>,
+    private vC: ViewContainerRef
+  ) {}
 }
