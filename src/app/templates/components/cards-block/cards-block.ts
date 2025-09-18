@@ -17,6 +17,7 @@ import {UserData} from '../../model/userData';
 export class CardsBlock {
   @ViewChild('customCard') customCardRef!: TemplateRef<any>;
 
+  @Input() heading = '';
   @Input() user?: UserData;
   @Input() users: UserData[] = [];
   @Input() different = false;

@@ -4,7 +4,7 @@
 </ng-template>
 
 <div class="different-cards">
-  <h1>CARDS ARE DIFFERENT</h1>
+  <h1>{{ heading }}</h1>
   @if (user) {
     <app-card [customCard]="different ? userCustomCard : customCardIsNeeded" [data]="user">
       <app-fullname>{{ user.name }} {{ user.surname }}</app-fullname>
