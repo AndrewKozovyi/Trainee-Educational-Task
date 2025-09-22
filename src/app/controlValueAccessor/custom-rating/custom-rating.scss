@@ -1,0 +1,21 @@
+.rating-control {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  :first-child {
+    margin-right: 1rem;
+  }
+
+  i {
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

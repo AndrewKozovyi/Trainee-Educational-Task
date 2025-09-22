@@ -1,0 +1,15 @@
+<form class="grid" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-custom-file-loader formControlName="file"></app-custom-file-loader>
+
+  <div class="input-box">
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      formControlName="description"
+    ></textarea>
+  </div>
+
+  <app-custom-rating formControlName="rating"></app-custom-rating>
+
+  <button type="submit">Add Review</button>
+</form>

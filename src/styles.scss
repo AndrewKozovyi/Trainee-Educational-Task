@@ -1,6 +1,7 @@
 @use 'app/variables' as *;
 @use 'app/mixins' as *;
 @use '@angular/material' as mat;
+@import "primeicons/primeicons.css";
 
 * {
   margin: 0;
@@ -43,7 +44,8 @@ main {
         $confirm-btn-font-color,
         $confirm-btn-color,
         $confirm-btn-color-hover,
-        none
+        none,
+        5px
     )
   }
 }
@@ -56,6 +58,7 @@ main {
       $confirm-btn-font-color,
       grey,
       #a6a6a6,
-      none
+      none,
+      5px
   )
 }

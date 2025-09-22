@@ -1,0 +1,13 @@
+<div class="rating-control">
+  <h1>{{ rating }}</h1>
+
+  @for (i of Array(5).keys(); track i) {
+    <i
+      class="pi"
+      [ngClass]="i <= rating-1 ? 'pi-star-fill' : 'pi-star'"
+      (click)="setRating(i+1)"
+      style="font-size: 1.75rem; color: yellow"
+    >
+    </i>
+  }
+</div>

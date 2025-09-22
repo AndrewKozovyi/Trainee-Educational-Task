@@ -36,7 +36,8 @@ form {
           $confirm-btn-font-color,
           $confirm-btn-color,
           $confirm-btn-color-hover,
-          none
+          none,
+          5px
       )
     }
 
@@ -47,7 +48,8 @@ form {
           $confirm-btn-font-color,
           $cancel-btn-color,
           $cancel-btn-color-hover,
-          none
+          none,
+          5px
       )
     }
   }

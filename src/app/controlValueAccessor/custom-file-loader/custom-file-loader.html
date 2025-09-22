@@ -1,0 +1,18 @@
+<div>
+  <input
+    type="file"
+    accept="image/*"
+    (change)="onFileUploaded($event)"
+    class="file-input"
+    #fileUpload
+  >
+
+  @if (fileUrl) {
+    <img width="100%" [src]="fileUrl" alt="">
+  }
+
+  <div class="file-upload">
+    {{ !uploadedFile ? `No file uploaded yet` : null }}
+    <button type="button" (click)="!uploadedFile ? fileUpload.click() : clearImg()">{{ !uploadedFile ? `Upload Image` : `Clear Image` }}</button>
+  </div>
+</div>

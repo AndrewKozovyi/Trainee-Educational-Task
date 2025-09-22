@@ -1,8 +1,8 @@
-@mixin custom-button($font-size, $padding, $color, $background-color, $hover-color, $border) {
+@mixin custom-button($font-size, $padding, $color, $background-color, $hover-color, $border, $border-radius) {
     font-size: $font-size;
     font-weight: bold;
     padding: $padding;
-    border-radius: 5px;
+    border-radius: $border-radius;
     border: $border;
     background: $background-color;
     color: $color;

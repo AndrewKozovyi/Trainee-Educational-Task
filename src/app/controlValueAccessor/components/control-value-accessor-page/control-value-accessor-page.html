@@ -1,1 +1,10 @@
-<p>control-value-accessor-page works!</p>
+<app-header title="Control Value Accessor"></app-header>
+
+<main>
+  <app-custom-form></app-custom-form>
+  <div class="review-list">
+    @for (review of reviews$ | async; track review.id) {
+      <app-review-card [review]="review"></app-review-card>
+    }
+  </div>
+</main>

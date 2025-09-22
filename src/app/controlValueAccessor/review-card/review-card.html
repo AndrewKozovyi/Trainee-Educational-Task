@@ -1,0 +1,12 @@
+@if (review) {
+  <div class="review-card">
+    <img [src]="review.file">
+    <p>{{ review.description }}</p>
+    <h1>Rating: {{ review.rating }}
+      <i
+        class="pi pi-star-fill"
+        style="font-size: 1.75rem; color: yellow"
+      ></i>
+    </h1>
+  </div>
+}
