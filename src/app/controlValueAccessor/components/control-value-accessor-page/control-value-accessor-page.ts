@@ -1,11 +1,11 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Header} from '../../../shared/header/header';
-import {CustomForm} from '../../custom-form/custom-form';
+import {CustomForm} from '../custom-form/custom-form';
 import {Observable} from 'rxjs';
 import {ReviewModel} from '../../model/reviewModel';
 import {Review} from '../../service/review';
 import {AsyncPipe} from '@angular/common';
-import {ReviewCard} from '../../review-card/review-card';
+import {ReviewCard} from '../review-card/review-card';
 
 @Component({
   selector: 'app-control-value-accessor-page',

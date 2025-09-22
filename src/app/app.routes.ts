@@ -6,6 +6,7 @@ import {DirectivePage} from './directives/components/directive-page/directive-pa
 import {
   ControlValueAccessorPage
 } from './controlValueAccessor/components/control-value-accessor-page/control-value-accessor-page';
+import {RxJsSubjectsPage} from './rxJsSubjects/components/rx-js-subjects-page/rx-js-subjects-page';
 
 export const routes: Routes = [
   { path: '', component: HomePage },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'templates', component: TemplatePage },
   { path: 'directives', component: DirectivePage },
   { path: 'controlValueAccessor', component: ControlValueAccessorPage },
+  { path: 'rxJsSubjects', component: RxJsSubjectsPage },
   { path: '**', component: HomePage },
 ];

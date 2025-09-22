@@ -1,5 +1,5 @@
-@use '../../variables' as *;
-@use '../../mixins' as *;
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
 
 .grid {
   display: grid;
@@ -23,16 +23,6 @@ button {
   width: fit-content;
 
   grid-area: 4 / 1 / 5 / 3;
-
-  @include custom-button(
-      16px,
-      7px,
-      white,
-      $confirm-btn-color,
-      $confirm-btn-color-hover,
-      none,
-      5px
-  )
 }
 
 textarea {

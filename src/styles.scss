@@ -36,18 +36,6 @@ main {
   align-items: center;
   padding: 1.5rem 2rem;
   border-bottom: 1px solid #ccc;
-
-  button {
-    @include custom-button(
-        22px,
-        0.5rem 1rem,
-        $confirm-btn-font-color,
-        $confirm-btn-color,
-        $confirm-btn-color-hover,
-        none,
-        5px
-    )
-  }
 }
 
 
@@ -58,6 +46,54 @@ main {
       $confirm-btn-font-color,
       grey,
       #a6a6a6,
+      none,
+      5px
+  )
+}
+
+.confirm-btn {
+  @include custom-button(
+      22px,
+      0.5rem 1rem,
+      $confirm-btn-font-color,
+      $confirm-btn-color,
+      $confirm-btn-color-hover,
+      none,
+      5px
+  )
+}
+
+.orange-btn {
+  @include custom-button(
+      14px,
+      7px,
+      white,
+      orange,
+      #f4b94c,
+      none,
+      5px
+  )
+}
+
+.purple-btn {
+  @include custom-button(
+      22px,
+      0.5rem 1rem,
+      white,
+      #c319c3,
+      purple,
+      none,
+      5px
+  )
+}
+
+.red-btn {
+  @include custom-button(
+      22px,
+      0.5rem 1rem,
+      $confirm-btn-font-color,
+      $cancel-btn-color,
+      $cancel-btn-color-hover,
       none,
       5px
   )

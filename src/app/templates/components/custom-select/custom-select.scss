@@ -6,16 +6,6 @@
 
   button {
     width: 100%;
-
-    @include custom-button(
-        22px,
-        0.5rem 1rem,
-        white,
-        #c319c3,
-        purple,
-        none,
-        5px
-    )
   }
 
   ul {

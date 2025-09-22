@@ -1,0 +1,41 @@
+<app-header title="RxJs: Subject, BehaviorSubject, ReplaySubject, AsyncSubject"></app-header>
+
+<main>
+  <div>
+    @for (item of items; track item.id) {
+      <div class="item-card">
+        <h1>{{ item.name }}</h1>
+        <h3>Price: {{ item.price }} UAH</h3>
+        <button class="purple-btn" (click)="orderItem(item)">Order</button>
+      </div>
+    }
+  </div>
+
+<!--  subject - last sold item-->
+  <div>
+    <h1>LAST SOLD ITEM:</h1>
+    @if (orderService.purchasedItem$ | async; as item) {
+      <h2>{{ item?.name }} for {{ item?.price }} UAH</h2>
+    } @else {
+      <h2>Nothing is bought yet(</h2>
+    }
+  </div>
+
+<!--  behavior sub - sold items-->
+  <div>
+    <h1>SOLD ITEMS: {{ orderService.totalSoldItems$ | async }}</h1>
+  </div>
+
+<!--  replay sub - last sold items log-->
+<!--  async sub - end of the work day sold sum-->
+  <div>
+    @if (!areLogsActive && !dayIsFinished) {
+      <button class="orange-btn" (click)="activateLogs()">Activate logs</button>
+    }
+
+    <button [ngClass]="!dayIsFinished ? 'red-btn' : 'confirm-btn'" (click)="finishOrStartWorkDay()">
+      {{ dayIsFinished ? `Start New Day!` : `Finish The Day!`}}
+    </button>
+  </div>
+
+</main>

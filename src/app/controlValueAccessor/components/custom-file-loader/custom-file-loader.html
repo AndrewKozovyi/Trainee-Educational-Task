@@ -13,6 +13,6 @@
 
   <div class="file-upload">
     {{ !uploadedFile ? `No file uploaded yet` : null }}
-    <button type="button" (click)="!uploadedFile ? fileUpload.click() : clearImg()">{{ !uploadedFile ? `Upload Image` : `Clear Image` }}</button>
+    <button class="orange-btn" type="button" (click)="!uploadedFile ? fileUpload.click() : clearImg()">{{ !uploadedFile ? `Upload Image` : `Clear Image` }}</button>
   </div>
 </div>

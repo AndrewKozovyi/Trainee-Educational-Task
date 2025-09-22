@@ -20,4 +20,8 @@ export const navigatingBar: OnBoardingTask[] = [
     name: 'Control Value Accessor',
     link: '/controlValueAccessor',
   },
+  {
+    name: 'Subject, BehaviorSubject, ReplaySubject, AsyncSubject',
+    link: '/rxJsSubjects',
+  },
 ]

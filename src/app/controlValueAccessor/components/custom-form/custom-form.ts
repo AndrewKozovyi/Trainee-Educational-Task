@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import {CustomFIleLoader} from '../custom-file-loader/custom-file-loader';
 import {CustomRating} from '../custom-rating/custom-rating';
-import {Review} from '../service/review';
+import {Review} from '../../service/review';
 
 @Component({
   selector: 'app-custom-form',
