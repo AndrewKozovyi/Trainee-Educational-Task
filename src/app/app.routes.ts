@@ -7,6 +7,9 @@ import {
   ControlValueAccessorPage
 } from './controlValueAccessor/components/control-value-accessor-page/control-value-accessor-page';
 import {RxJsSubjectsPage} from './rxJsSubjects/components/rx-js-subjects-page/rx-js-subjects-page';
+import {
+  RxJsWithoutOperatorsPage
+} from './rxJs/withoutOperators/components/rx-js-without-operators-page/rx-js-without-operators-page';
 
 export const routes: Routes = [
   { path: '', component: HomePage },
@@ -15,5 +18,6 @@ export const routes: Routes = [
   { path: 'directives', component: DirectivePage },
   { path: 'controlValueAccessor', component: ControlValueAccessorPage },
   { path: 'rxJsSubjects', component: RxJsSubjectsPage },
+  { path: 'rxJsNoOperators', component: RxJsWithoutOperatorsPage },
   { path: '**', component: HomePage },
 ];

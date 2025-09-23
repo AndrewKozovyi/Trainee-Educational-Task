@@ -1,0 +1,13 @@
+<div class="timer-box">
+  <div class="control-btn-box">
+    <button class="orange-btn" (click)="pauseCountDown()">Pause</button>
+    <button class="purple-btn" (click)="startCountDown()">Start Timer</button>
+    <button class="red-btn" (click)="resetCountDown()">Reset</button>
+  </div>
+  @if (timer$ | async; as t) {
+    <h1>{{t.hours | doubleZero}}:{{t.minutes | doubleZero}}:{{t.seconds | doubleZero}}</h1>
+    @if (countDownIsFinished) {
+      <h1>TIME IS UP</h1>
+    }
+  }
+</div>

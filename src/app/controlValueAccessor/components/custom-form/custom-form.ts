@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -21,7 +21,7 @@ import {Review} from '../../service/review';
   templateUrl: './custom-form.html',
   styleUrl: './custom-form.scss'
 })
-export class CustomForm {
+export class CustomForm implements OnInit {
   fb = inject(FormBuilder);
   reviewService = inject(Review);
 
@@ -30,6 +30,12 @@ export class CustomForm {
     rating: [0, [Validators.required]],
     file: ['', [Validators.required]],
   });
+
+  ngOnInit(): void {
+    this.form.valueChanges.subscribe({
+      next: value => {console.log(value)}
+    });
+  }
 
   onSubmit() {
     if (this.form.invalid) { return; }
