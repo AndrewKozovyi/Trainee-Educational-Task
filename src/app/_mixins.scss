@@ -6,6 +6,7 @@
     border: $border;
     background: $background-color;
     color: $color;
+    cursor: pointer;
 
     &:hover {
       background: $hover-color;

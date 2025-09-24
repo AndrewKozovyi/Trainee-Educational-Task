@@ -1,0 +1,253 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="full-name" formGroupName="fullName">
+    <div class="input-field">
+      <label for="first-name">First Name</label>
+      <input
+        pInputText
+        id="first-name"
+        type="text"
+        formControlName="firstName"
+      >
+      @if (canDisplayError(firstName) && firstName.hasError('required')) {
+        <small class="error">{{ requiredError }}</small>
+      }
+      @if (canDisplayError(firstName) && firstName.hasError('minlength')) {
+        <small class="error">{{ minNumberError }} 3 characters long</small>
+      }
+      @if (canDisplayError(firstName) && firstName.hasError('maxlength')) {
+        <small class="error">{{ maxNumberError }} 30 characters long</small>
+      }
+    </div>
+
+    <div class="input-field">
+      <label for="last-name">Last Name</label>
+      <input
+        pInputText
+        id="last-name"
+        type="text"
+        formControlName="lastName"
+      >
+      @if (canDisplayError(lastName) && lastName.hasError('required')) {
+        <small class="error">{{ requiredError }}</small>
+      }
+      @if (canDisplayError(lastName) && lastName.hasError('minlength')) {
+        <small class="error">{{ minNumberError }} 3 characters long</small>
+      }
+      @if (canDisplayError(lastName) && lastName.hasError('maxlength')) {
+        <small class="error">{{ maxNumberError }} 30 characters long</small>
+      }
+    </div>
+  </div>
+
+  <div class="credentials" formGroupName="credentials">
+    <div class="input-field">
+      <label for="email">Email</label>
+      <input
+        pInputText
+        id="email"
+        type="text"
+        formControlName="email"
+      >
+      @if (canDisplayError(email) && email.hasError('required')) {
+        <small class="error">{{ requiredError }}</small>
+      }
+      @if (canDisplayError(email) && email.hasError('email')) {
+        <small class="error">* Email is incorrect</small>
+      }
+      @if (canDisplayError(email) && email.hasError('maxlength')) {
+        <small class="error">{{ maxNumberError }} 45 characters long</small>
+      }
+    </div>
+
+    <div class="input-field">
+      <label for="phone">Phone</label>
+      <input
+        pInputText
+        id="phone"
+        type="tel"
+        placeholder="+380 99 999 99 99"
+        formControlName="phone"
+      >
+      @if (canDisplayError(phone) && phone.hasError('required')) {
+        <small class="error">{{ requiredError }}</small>
+      }
+      @if (canDisplayError(phone) && phone.hasError('notAPhoneNumber')) {
+        <small class="error">*Not a phone number</small>
+      }
+    </div>
+
+    <div class="input-field">
+      <label for="birth-year">
+        Birth Year
+      </label>
+      <app-custom-year-select
+        id="birth-year"
+        [options]="years"
+        formControlName="birthYear"
+      >
+        <ng-template let-year>
+          <span>{{ year.year }}</span>
+        </ng-template>
+      </app-custom-year-select>
+      @if (canDisplayError(birthYear) && birthYear.hasError('min')) {
+        <small class="error">The latest 1930</small>
+      }
+      @if (canDisplayError(birthYear) && birthYear.hasError('max')) {
+        <small class="error">{{ minNumberError }} 2025</small>
+      }
+    </div>
+  </div>
+
+  <div class="address" formGroupName="address">
+    <h2>Address</h2>
+    <div class="address-fields">
+      <div class="input-field">
+        <label for="country">Country</label>
+        <input
+          pInputText
+          id="country"
+          type="text"
+          formControlName="country"
+        >
+        @if (canDisplayError(country) && country.hasError('required')) {
+          <small class="error">{{ requiredError }}</small>
+        }
+        @if (canDisplayError(country) && country.hasError('minlength')) {
+          <small class="error">{{ minNumberError }} 3 characters long</small>
+        }
+        @if (canDisplayError(country) && country.hasError('maxlength')) {
+          <small class="error">{{ maxNumberError }} 30 characters long</small>
+        }
+      </div>
+
+      <div class="input-field">
+        <label for="city">City</label>
+        <input
+          pInputText
+          id="city"
+          type="text"
+          formControlName="city"
+        >
+        @if (canDisplayError(city) && city.hasError('required')) {
+          <small class="error">{{ requiredError }}</small>
+        }
+        @if (canDisplayError(city) && city.hasError('minlength')) {
+          <small class="error">{{ minNumberError }} 3 characters long</small>
+        }
+        @if (canDisplayError(city) && city.hasError('maxlength')) {
+          <small class="error">{{ maxNumberError }} 30 characters long</small>
+        }
+      </div>
+
+      <div class="input-field">
+        <label for="street">Street</label>
+        <input
+          pInputText
+          id="street"
+          type="text"
+          formControlName="street"
+        >
+      </div>
+
+      <div class="input-field">
+        <label for="house">House</label>
+        <input
+          pInputText
+          id="house"
+          type="text"
+          formControlName="house"
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="hobby-block" formArrayName="hobbies">
+    <h2>Hobbies</h2>
+    <article class="hobby-list">
+      @for (hobby of hobbies.controls; track hobby; let i = $index) {
+        <div class="hobby" [formGroupName]="i">
+          <div class="input-field name">
+            <label [for]="'name' + 1">Hobby</label>
+            <input
+              pInputText
+              [id]="'name' + 1"
+              type="text"
+              formControlName="name"
+            >
+            @if (
+              hobby.get('name') &&
+              hobby.get('name')?.invalid &&
+              (hobby.get('name')?.dirty || hobby.get('name')?.touched) &&
+              hobby.get('name')!.hasError('required')) {
+              <small class="error">{{ requiredError }}</small>
+            }
+            @if (
+              hobby.get('name') &&
+              hobby.get('name')?.invalid &&
+              (hobby.get('name')?.dirty || hobby.get('name')?.touched) &&
+              hobby.get('name')!.hasError('minlength')) {
+              <small class="error">{{ minNumberError }} 3 characters long</small>
+            }
+            @if (
+              hobby.get('name') &&
+              hobby.get('name')?.invalid &&
+              (hobby.get('name')?.dirty || hobby.get('name')?.touched) &&
+              hobby.get('name')!.hasError('maxlength')) {
+              <small class="error">{{ maxNumberError }} 30 characters long</small>
+            }
+          </div>
+
+          <div class="input-field years">
+            <label [for]="'years' + 1">Years Of Having</label>
+            <input
+              pInputText
+              [id]="'years' + 1"
+              type="number"
+              min="0"
+              formControlName="years"
+            >
+            @if (
+              hobby.get('years') &&
+              hobby.get('years')?.invalid &&
+              (hobby.get('years')?.dirty || hobby.get('years')?.touched) &&
+              hobby.get('years')!.hasError('required')) {
+              <small class="error">{{ requiredError }}</small>
+            }
+            @if (
+              hobby.get('years') &&
+              hobby.get('years')?.invalid &&
+              (hobby.get('years')?.dirty || hobby.get('name')?.touched) &&
+              hobby.get('years')!.hasError('min')) {
+              <small class="error">{{ minNumberError }} 0</small>
+            }
+          </div>
+
+          <p-button
+            icon="pi pi-trash"
+            class="delete"
+            [rounded]="true"
+            severity="danger"
+            (click)="removeHobby(i)"
+          />
+        </div>
+      }
+    </article>
+    <button
+      class="orange-btn"
+      type="button"
+      (click)="addHobby()"
+    >ADD</button>
+  </div>
+
+  <app-custom-file-loader class="photo" formControlName="photoUrl">
+  </app-custom-file-loader>
+
+  <div class="control-box">
+    <button class="confirm-btn" type="submit">
+      Submit
+    </button>
+    <button class="red-btn" type="reset">
+      Cancel
+    </button>
+  </div>
+</form>

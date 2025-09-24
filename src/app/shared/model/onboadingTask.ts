@@ -28,4 +28,8 @@ export const navigatingBar: OnBoardingTask[] = [
     name: 'RxJs Operators',
     link: '/rxJsNoOperators',
   },
+  {
+    name: 'Complex Reactive Form',
+    link: '/reactiveForm',
+  },
 ]

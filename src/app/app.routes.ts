@@ -10,6 +10,7 @@ import {RxJsSubjectsPage} from './rxJsSubjects/components/rx-js-subjects-page/rx
 import {
   RxJsOperatorsPage
 } from './rxJs/withoutOperators/components/rx-js-without-operators-page/rx-js-operators-page.component';
+import {ReactiveFormPage} from './reactiveForm/components/reactive-form-page/reactive-form-page';
 
 export const routes: Routes = [
   { path: '', component: HomePage },
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'controlValueAccessor', component: ControlValueAccessorPage },
   { path: 'rxJsSubjects', component: RxJsSubjectsPage },
   { path: 'rxJsNoOperators', component: RxJsOperatorsPage },
+  { path: 'reactiveForm', component: ReactiveFormPage },
   { path: '**', component: HomePage },
 ];

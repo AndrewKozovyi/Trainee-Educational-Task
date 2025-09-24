@@ -1,0 +1,41 @@
+@use '../../../variables' as *;
+@use '../../../mixins' as *;
+
+.custom-select {
+  width: fit-content;
+  position: relative;
+
+  button {
+    font-size: 18px;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+  }
+
+  ul {
+    display: block;
+    background: #c8c7c7;
+    text-align: center;
+    position: absolute;
+    height: 200px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    width: 100%;
+    z-index: 5;
+
+    li {
+      margin: auto;
+      list-style: none;
+      cursor: pointer;
+      padding: 0.5rem 0.5rem;
+      font-size: 17px;
+
+      &:hover {
+        background: #757575;
+      }
+    }
+  }
+}
+
+.active {
+  background: #9f9f9f;
+}
