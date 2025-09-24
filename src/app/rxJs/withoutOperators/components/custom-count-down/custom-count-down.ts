@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Component, Input} from '@angular/core';
+import {BehaviorSubject, iif, mergeMap, Observable, of} from 'rxjs';
 import {TimeModel} from '../../model/timeModel';
 import {DoubleZeroPipe} from '../../pipe/double-zero-pipe';
 import {AsyncPipe} from '@angular/common';
+import {evenSeconds} from '../../operators/countdownOperator';
 
 @Component({
   selector: 'app-custom-count-down',
@@ -22,6 +23,8 @@ export class CustomCountDown {
     seconds: 0
   }
   private sub: any;
+
+  @Input() useCustomOperator = false;
 
   timer$ = new BehaviorSubject<TimeModel>(this.defaultTimer);
   countDownIsFinished = false;
@@ -61,7 +64,14 @@ export class CustomCountDown {
   });
 
   startCountDown() {
-    this.sub = this.countDown$.subscribe({
+    this.sub = this.countDown$.pipe(
+      mergeMap(value => iif(
+          () => this.useCustomOperator,
+          of(value).pipe(evenSeconds()),
+          of(value)
+        )
+      )
+    ).subscribe({
       next: (value) => {
         this.timer$.next(value);
       },

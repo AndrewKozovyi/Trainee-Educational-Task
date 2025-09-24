@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RxJsWithoutOperatorsPage } from './rx-js-without-operators-page';
+import { RxJsOperatorsPage } from './rx-js-operators-page.component';
 
 describe('RxJsWithoutOperatorsPage', () => {
-  let component: RxJsWithoutOperatorsPage;
-  let fixture: ComponentFixture<RxJsWithoutOperatorsPage>;
+  let component: RxJsOperatorsPage;
+  let fixture: ComponentFixture<RxJsOperatorsPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RxJsWithoutOperatorsPage]
+      imports: [RxJsOperatorsPage]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RxJsWithoutOperatorsPage);
+    fixture = TestBed.createComponent(RxJsOperatorsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

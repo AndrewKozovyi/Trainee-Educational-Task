@@ -25,7 +25,7 @@ export const navigatingBar: OnBoardingTask[] = [
     link: '/rxJsSubjects',
   },
   {
-    name: 'RxJs Without Operators',
+    name: 'RxJs Operators',
     link: '/rxJsNoOperators',
   },
 ]

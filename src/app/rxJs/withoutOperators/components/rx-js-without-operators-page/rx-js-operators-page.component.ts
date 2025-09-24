@@ -4,15 +4,15 @@ import {CustomCountDown} from '../custom-count-down/custom-count-down';
 import {CustomSearchInput} from '../custom-search-input/custom-search-input';
 
 @Component({
-  selector: 'app-rx-js-without-operators-page',
+  selector: 'app-rx-js-operators-page',
   imports: [
     Header,
     CustomCountDown,
     CustomSearchInput
   ],
-  templateUrl: './rx-js-without-operators-page.html',
-  styleUrl: './rx-js-without-operators-page.scss'
+  templateUrl: './rx-js-operators-page.component.html',
+  styleUrl: './rx-js-operators-page.component.scss'
 })
-export class RxJsWithoutOperatorsPage {
-
+export class RxJsOperatorsPage {
+  useCustomOperator = false;
 }

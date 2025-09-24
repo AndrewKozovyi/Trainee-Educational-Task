@@ -1,8 +1,9 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {BehaviorSubject, debounceTime, filter, map, pairwise, tap} from 'rxjs';
+import {Component, inject, Input, OnInit} from '@angular/core';
+import {BehaviorSubject, debounceTime, distinctUntilChanged, iif, map, mergeMap, of, tap} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {evenLettersToUpperCase} from '../../operators/inputOperator';
 
 @Component({
   selector: 'app-custom-search-input',
@@ -17,12 +18,18 @@ export class CustomSearchInput implements OnInit {
   private http = inject(HttpClient);
   inputData$ = new BehaviorSubject<string>('');
 
+  @Input() useCustomOperator = false;
+
   ngOnInit() {
     this.inputData$.pipe(
       debounceTime(400),
+      mergeMap(value => iif(
+        () => this.useCustomOperator,
+        of(value).pipe(evenLettersToUpperCase()),
+        of(value)
+      )), //custom operator
       map((value) => value.trim()),
-      pairwise(),
-      filter((value) => value[0] !== value[1]),
+      distinctUntilChanged(),
       tap((value) => {
         this.http.post('/search', value).subscribe({
             error: error => {

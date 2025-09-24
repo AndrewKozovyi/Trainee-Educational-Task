@@ -1,0 +1,19 @@
+<ng-template #customHeader>
+  <header class="custom-header">
+    <h1>RxJS Without Operators</h1>
+    <button
+      class="confirm-btn"
+      (click)="useCustomOperator = !useCustomOperator"
+    >
+      Turn {{ !useCustomOperator ? `On` : `Off` }} Custom Operators
+    </button>
+  </header>
+</ng-template>
+
+<app-header [headerTemplate]="customHeader">
+</app-header>
+
+<main>
+  <app-custom-count-down [useCustomOperator]="useCustomOperator"></app-custom-count-down>
+  <app-custom-search-input [useCustomOperator]="useCustomOperator"></app-custom-search-input>
+</main>
