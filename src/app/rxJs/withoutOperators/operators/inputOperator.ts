@@ -7,16 +7,15 @@ export function evenLettersToUpperCase(): MonoTypeOperatorFunction<string> {
       return source.pipe(
         debounceTime(400),
         map(value => value.trim()),
-        tap((value) => {
+        map((value) => {
           let b = value.split('');
           for (let i = 0; i < value.length; i++) {
             if (i < value.length && i % 2 === 0) {
               b[i] = value[i].toUpperCase();
             }
           }
-          a = b.join('');
+          return b.join('');
         }),
-        map(() => a),
       ).subscribe({
         next(value) {
           subscriber.next(value);
