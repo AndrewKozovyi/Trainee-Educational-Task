@@ -1,5 +1,13 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 import {CustomFIleLoader} from '../../../controlValueAccessor/components/custom-file-loader/custom-file-loader';
 import {debounceTime} from 'rxjs';
 import {InputText} from 'primeng/inputtext';
@@ -7,6 +15,7 @@ import {Year} from '../../model/formModel';
 import {CustomYearSelect} from '../custom-year-select/custom-year-select';
 import {Button} from 'primeng/button';
 import {validatePhoneNumber} from '../../validators/phoneValidator';
+import { IMaskModule } from 'angular-imask';
 
 @Component({
   selector: 'app-custom-complex-form',
@@ -16,7 +25,8 @@ import {validatePhoneNumber} from '../../validators/phoneValidator';
     InputText,
     FormsModule,
     CustomYearSelect,
-    Button
+    Button,
+    IMaskModule
   ],
   templateUrl: './custom-complex-form.html',
   styleUrl: './custom-complex-form.scss'
@@ -28,6 +38,7 @@ export class CustomComplexForm implements OnInit {
   minNumberError = "*At least";
   maxNumberError = "*Max length";
   years: Year[] = [];
+  showAllErrors = false;
 
   form = this.fb.group({
     fullName: this.fb.group({
@@ -84,11 +95,13 @@ export class CustomComplexForm implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
-    console.log(this.form.valid);
     if (this.form.invalid) {
+      this.showAllErrors = true;
       return;
     }
+
+    this.showAllErrors = false;
+    console.log('Form submitted!');
   }
 
   addHobby() {
@@ -104,7 +117,10 @@ export class CustomComplexForm implements OnInit {
     this.hobbies.removeAt(index);
   }
 
-  canDisplayError(control: FormControl) {
-    return control.invalid && (control.dirty || control.touched);
+  canDisplayError(control: FormControl | AbstractControl | undefined | null) {
+    if (!control) {
+      return
+    }
+    return (control.invalid && (control.dirty || control.touched)) || this.showAllErrors;
   }
 }

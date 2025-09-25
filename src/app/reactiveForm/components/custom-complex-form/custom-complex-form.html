@@ -67,6 +67,7 @@
         type="tel"
         placeholder="+380 99 999 99 99"
         formControlName="phone"
+        [imask]="{mask: '+{38} (000) 000 00 00'}"
       >
       @if (canDisplayError(phone) && phone.hasError('required')) {
         <small class="error">{{ requiredError }}</small>
@@ -175,23 +176,20 @@
               formControlName="name"
             >
             @if (
-              hobby.get('name') &&
-              hobby.get('name')?.invalid &&
-              (hobby.get('name')?.dirty || hobby.get('name')?.touched) &&
+              ((hobby.get('name')?.invalid &&
+              (hobby.get('name')?.dirty || hobby.get('name')?.touched)) || showAllErrors) &&
               hobby.get('name')!.hasError('required')) {
               <small class="error">{{ requiredError }}</small>
             }
             @if (
-              hobby.get('name') &&
-              hobby.get('name')?.invalid &&
-              (hobby.get('name')?.dirty || hobby.get('name')?.touched) &&
+              ((hobby.get('name')?.invalid &&
+              (hobby.get('name')?.dirty || hobby.get('name')?.touched)) || showAllErrors) &&
               hobby.get('name')!.hasError('minlength')) {
               <small class="error">{{ minNumberError }} 3 characters long</small>
             }
             @if (
-              hobby.get('name') &&
-              hobby.get('name')?.invalid &&
-              (hobby.get('name')?.dirty || hobby.get('name')?.touched) &&
+              ((hobby.get('name')?.invalid &&
+              (hobby.get('name')?.dirty || hobby.get('name')?.touched)) || showAllErrors) &&
               hobby.get('name')!.hasError('maxlength')) {
               <small class="error">{{ maxNumberError }} 30 characters long</small>
             }
@@ -207,16 +205,14 @@
               formControlName="years"
             >
             @if (
-              hobby.get('years') &&
-              hobby.get('years')?.invalid &&
-              (hobby.get('years')?.dirty || hobby.get('years')?.touched) &&
+              ((hobby.get('years')?.invalid &&
+              (hobby.get('years')?.dirty || hobby.get('years')?.touched)) || showAllErrors) &&
               hobby.get('years')!.hasError('required')) {
               <small class="error">{{ requiredError }}</small>
             }
             @if (
-              hobby.get('years') &&
-              hobby.get('years')?.invalid &&
-              (hobby.get('years')?.dirty || hobby.get('name')?.touched) &&
+              ((hobby.get('years')?.invalid &&
+                (hobby.get('years')?.dirty || hobby.get('years')?.touched)) || showAllErrors) &&
               hobby.get('years')!.hasError('min')) {
               <small class="error">{{ minNumberError }} 0</small>
             }
@@ -246,7 +242,7 @@
     <button class="confirm-btn" type="submit">
       Submit
     </button>
-    <button class="red-btn" type="reset">
+    <button class="red-btn" type="reset" (click)="showAllErrors = false">
       Cancel
     </button>
   </div>

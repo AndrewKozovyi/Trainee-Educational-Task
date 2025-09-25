@@ -33,7 +33,6 @@ export class CustomYearSelect implements ControlValueAccessor {
   onTouch: OnTouchFunction = () => {};
 
   writeValue(value: number): void {
-    if (value === null ) { return }
     this.selectedOption = value;
   }
 

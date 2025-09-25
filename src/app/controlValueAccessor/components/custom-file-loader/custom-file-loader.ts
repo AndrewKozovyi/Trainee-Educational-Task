@@ -32,8 +32,8 @@ export class CustomFIleLoader implements ControlValueAccessor {
   onTouch: OnTouchFunction = () => {};
 
   writeValue(value: string): void {
-    if (value === null ) { return }
     this.uploadedFile = value;
+    this.fileUrl = value
   }
 
   registerOnChange(fn: OnChangeFunction<string>): void {
